@@ -1,0 +1,13 @@
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navLinks {
+  display: flex;
+}
+.navLinks > * {
+  margin-right: 18px;
+  text-decoration: none;
+  color: black;
+}
