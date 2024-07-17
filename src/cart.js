@@ -19,20 +19,20 @@ function getCartList() {
 function getCartItemsCount() {
   return cartList.length;
 }
-function getItemFromCart(id) {
+function getItemFromCart(itemId) {
   for (let i = 0; i < cartList.length; i++) {
-    if (cartList[i] === id) {
+    if (cartList[i].id === itemId) {
       return true;
     }
   }
   return false;
 }
-function addItemToCart(item) {
-  cartList.unshift(item);
+function addItemToCart(itemId, quantity) {
+  cartList.unshift({ id: itemId, quantity: quantity });
   saveCart();
 }
-function removeItemFromCart(item) {
-  cartList = cartList.filter((i) => i !== item);
+function removeItemFromCart(itemId) {
+  cartList = cartList.filter((i) => i.id !== itemId);
   saveCart();
 }
 
