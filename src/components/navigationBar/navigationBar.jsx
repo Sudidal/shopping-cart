@@ -1,6 +1,6 @@
 import classes from "./navigationBar.module.css"
 
-function NavigationBar() {
+function NavigationBar({cartCount}) {
   const items = [
     {
       title: "Home",
@@ -8,10 +8,6 @@ function NavigationBar() {
     },
     {
       title: "Shop",
-      link: "https://fast.com/",
-    },
-    {
-      title: "Cart",
       link: "https://fast.com/",
     },
   ];
@@ -23,6 +19,10 @@ function NavigationBar() {
         {items.map((item) => {
           return <a key={item.title} href={item.link}>{item.title}</a>;
         })}
+        <div className="icon-with-text">
+          <img className="icon" src="shopping-cart.svg" alt="" />
+          <p>{cartCount}</p>
+        </div>
       </div>
     </nav>
   );

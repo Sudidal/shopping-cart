@@ -5,6 +5,7 @@
 }
 .navLinks {
   display: flex;
+  align-items: center;
 }
 .navLinks > * {
   margin-right: 18px;

@@ -8,6 +8,12 @@ body {
   --background-color-dark: rgb(2, 17, 39);
   background-color: var(--background-color-light);
 }
+.icon {
+  width: 20px;
+}
+.icon-with-text {
+  display: flex;
+}
 
 /* @media (prefers-color-scheme: light) {
   body {

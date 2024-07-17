@@ -3,10 +3,11 @@ import { getProducts } from "../../products"
 import ProductCard from "../productCard/productCard"
 import classes from "./productsContainer.module.css"
 
-function ProductsContainer() {
+function ProductsContainer({onChange}) {
   const [products, setProducts] = useState([])
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
+
   useEffect(() => {
     setLoading(true)
     getProducts()
@@ -22,6 +23,9 @@ function ProductsContainer() {
     })
   }, [])
   
+  function update() {
+    onChange();
+  }
 
   if(loading) return <p>Loading...</p>
   else if(error) return <p>An error has occured: {error}</p>
@@ -30,7 +34,7 @@ function ProductsContainer() {
       {
         products.length > 0? (
           products.map(prod => {
-            return <ProductCard key={prod.id} product={prod} />
+            return <ProductCard key={prod.id} product={prod} onChange={update} />
           })
         ) : <p>huh? nothing here</p>
       }
