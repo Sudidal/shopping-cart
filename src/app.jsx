@@ -1,6 +1,6 @@
 import NavigationBar from "./components/navigationBar/navigationBar";
-import ProductsContainer from "./components/productsContainer/productsContainer";
 import { useState } from "react";
+import { Outlet, } from "react-router-dom";
 import { getCartItemsCount } from "./cart";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <NavigationBar cartCount={getCartItemsCount()} />
-      <ProductsContainer onChange={update} />
+      <Outlet context={update} />
     </>
   );
 }

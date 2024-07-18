@@ -1,14 +1,15 @@
-import classes from "./navigationBar.module.css"
+import { Link } from "react-router-dom";
+import classes from "./navigationBar.module.css";
 
-function NavigationBar({cartCount}) {
+function NavigationBar({ cartCount }) {
   const items = [
     {
       title: "Home",
-      link: "https://fast.com/",
+      link: "/",
     },
     {
       title: "Shop",
-      link: "https://fast.com/",
+      link: "/shop",
     },
   ];
 
@@ -17,12 +18,18 @@ function NavigationBar({cartCount}) {
       <h1>Oxide Store</h1>
       <div className={classes.navLinks}>
         {items.map((item) => {
-          return <a key={item.title} href={item.link}>{item.title}</a>;
+          return (
+            <Link key={item.title} to={item.link}>
+              {item.title}
+            </Link>
+          );
         })}
-        <div className="icon-with-text">
-          <img className="icon" src="shopping-cart.svg" alt="" />
-          <p>{cartCount}</p>
-        </div>
+        <Link to="/cart">
+          <div className="icon-with-text">
+            <img className="icon" src="shopping-cart.svg" alt="" />
+            <p>{cartCount}</p>
+          </div>
+        </Link>
       </div>
     </nav>
   );

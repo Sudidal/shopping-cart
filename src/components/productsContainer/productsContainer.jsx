@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { getProducts } from "../../products"
+import { getAllProducts } from "../../products"
 import ProductCard from "../productCard/productCard"
 import classes from "./productsContainer.module.css"
 
@@ -10,15 +10,15 @@ function ProductsContainer({onChange}) {
 
   useEffect(() => {
     setLoading(true)
-    getProducts()
+    getAllProducts()
     .then(response => {
       setLoading(false)
-      if(response.length > 0) {
-        setProducts(response)
+      if(response.status === "success") {
+        setProducts(response.data)
       }
       else {
-        setError(response.toString())
-        console.error("ahhh those sneaky errors, " + response)
+        setError(response.data.toString())
+        console.error("ahhh those sneaky errors, " + response.data)
       }
     })
   }, [])
