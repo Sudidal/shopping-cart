@@ -5,7 +5,7 @@ function NavigationBar({ cartCount }) {
   const items = [
     {
       title: "Home",
-      link: "/",
+      link: "/home",
     },
     {
       title: "Shop",

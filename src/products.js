@@ -3,7 +3,7 @@ import fetchData from "./fetchData";
 const mainUrl = "https://fakestoreapi.com/products/";
 
 // I had to do caching to workaround the limitations of fakestoreapi.com
-let cachedData = null;
+let cachedData = { status: "success", data: null };
 
 function getAllProducts() {
   return getData(mainUrl);
@@ -13,7 +13,7 @@ function getSpecificProducts(arr) {
 }
 
 async function getData(url) {
-  if (cachedData) {
+  if (cachedData.data) {
     console.log("returning cached results");
     return cachedData;
   } else {
@@ -21,7 +21,7 @@ async function getData(url) {
     const response = await fetchData(url);
     result.data = response.data;
     if (response.status === "success") {
-      cachedData = response.data;
+      cachedData.data = response.data;
     } else {
       result.status = "fail";
     }
@@ -30,9 +30,9 @@ async function getData(url) {
 }
 async function getSerialData(arr) {
   let result = { status: "success", data: [] };
-  if (cachedData) {
+  if (cachedData.data) {
     console.log("returning cached results");
-    cachedData.forEach((prod) => {
+    cachedData.data.forEach((prod) => {
       arr.forEach((i) => {
         if (prod.id === i.id) {
           result.data.push(prod);
