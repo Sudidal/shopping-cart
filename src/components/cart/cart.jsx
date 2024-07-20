@@ -1,36 +1,39 @@
-import { getCartList } from "../../cart"
+import { getCartList } from "../../cart";
 import { getSpecificProducts } from "../../products";
-import ProductCard from "../productCard/productCard";
+import ProductsContainer from "../productsContainer/productsContainer";
 import { useState, useEffect } from "react";
 
 function Cart() {
-  const [cartItems, setCartItems] = useState ([]) 
-  const [loading, setLoading] = useState (false)
-  const [error, setError] = useState (null)
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    setLoading(true)
-    const list = getCartList();
+    setLoading(true);
+
+    const list = [];
+    getCartList().forEach((item) => {
+      list.push(item.id);
+    });
+
     getSpecificProducts(list).then((response) => {
-      setLoading(false)
-      if(response.status === "success") {
-        setCartItems(response.data)
+      setLoading(false);
+      if (response.status === "success") {
+        setProducts(response.data);
+      } else {
+        setError(response.data.toString());
       }
-      else {
-        setError(response.data.toString())
-      }
-    })
-  }, [])
-  
-  if(loading) return <p>Loading...</p>
-  if (error) return <p>An error has occured, {error}</p>
+    });
+  }, []);
+
   return (
-    cartItems.length > 0 ? (
-    cartItems.map((prod) => {
-      return <ProductCard key={prod.id} product={prod} />
-    })
-  ) : <p>Hmmm, there's nothing here</p>
-)
+    <div>
+      <h2>Cart</h2>
+      {loading && <p>Loading...</p>}
+      {error && <p>An error has occured, {error}</p>}
+      {!loading && !error && <ProductsContainer products={products} />}
+    </div>
+  );
 }
 
-export default Cart
+export default Cart;

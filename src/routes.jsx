@@ -3,6 +3,7 @@ import ErrorPage from "./components/errorPage/errorPage";
 import Shop from "./components/shop/shop";
 import Cart from "./components/cart/cart";
 import Home from "./components/home/home";
+import ProductPopup from "./components/productPopup/productPopup";
 
 const routes = [
   {
@@ -13,6 +14,12 @@ const routes = [
       {
         path: "shop",
         element: <Shop />,
+        children: [
+          {
+            path: "product/:productId",
+            element: <ProductPopup />,
+          },
+        ],
       },
       {
         path: "cart",

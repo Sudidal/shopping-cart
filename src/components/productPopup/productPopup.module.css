@@ -1,0 +1,29 @@
+.popUp{
+  width: 700px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.content {
+}
+.header {
+  font-size: 18px;
+}
+.info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.photo {
+  /* background-color: rgb(120, 120, 120); */
+}
+.photo img {
+  height: 200px;
+  width: 200px;
+  object-fit: contain;
+}
+.description {
+  color: rgba(0, 0, 0, 0.668);
+}

@@ -4,9 +4,11 @@
 }
 
 body {
+  padding: 0;
+  margin: 0;
   --background-color-light: white;
   --background-color-dark: rgb(2, 17, 39);
-  background-color: var(--background-color-light);
+  background-color: var(--background-color-light);;
 }
 .icon {
   width: 20px;

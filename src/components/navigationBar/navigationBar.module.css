@@ -1,7 +1,10 @@
 .navBar {
+  margin: 0;
+  padding: 0px 10px 0px 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: rgb(47, 168, 53);
 }
 .navLinks {
   display: flex;
@@ -9,6 +12,5 @@
 }
 .navLinks > * {
   margin-right: 18px;
-  text-decoration: none;
   color: black;
 }

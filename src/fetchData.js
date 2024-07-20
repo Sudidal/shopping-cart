@@ -1,4 +1,5 @@
 export default async function fetchData(url) {
+  console.log(url);
   try {
     const response = await fetch(url, { mode: "cors" });
     const data = await response.json();

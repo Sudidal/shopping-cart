@@ -17,6 +17,7 @@ async function getData(url) {
     console.log("returning cached results");
     return cachedData;
   } else {
+    console.log("fetching");
     let result = { status: "success", data: null };
     const response = await fetchData(url);
     result.data = response.data;
@@ -34,19 +35,21 @@ async function getSerialData(arr) {
     console.log("returning cached results");
     cachedData.data.forEach((prod) => {
       arr.forEach((i) => {
-        if (prod.id === i.id) {
+        if (prod.id === parseInt(i)) {
           result.data.push(prod);
         }
       });
     });
   } else {
+    console.log("fetching");
     for (let i = 0; i < arr.length; i++) {
-      const response = await fetchData(mainUrl + arr[i].id);
+      const response = await fetchData(mainUrl + arr[i]);
       if (response.status === "success") {
         result.data.push(response.data);
       } else {
         result.status = "fail";
         result.data = response.data;
+        break;
       }
     }
   }
