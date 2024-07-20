@@ -9,8 +9,8 @@ function Home() {
       <h2>Home</h2>
       <div className={classes.section}>
         <div className={classes.division}>
-          <p>
-            Find everything from A-Z,High quality from top brands, At lowest
+          <p className={classes.desc}>
+            Find everything from A-Z, High quality from top brands, At lowest
             prices
           </p>
         </div>
@@ -24,7 +24,7 @@ function Home() {
       </div>
       <div className={`${classes.section} ${classes.middle}`}>
         <div className={classes.division}>
-          <p>Shop from home with our worldwide shipping service</p>
+          <p className={classes.desc}>Shop from home with our worldwide shipping service</p>
         </div>
         <div className={classes.division}>
           <img
@@ -36,7 +36,7 @@ function Home() {
       </div>
       <div className={classes.section}>
         <div className={classes.division}>
-          <p>Got problems? Reach to us via our 24/7 customer service</p>
+          <p className={classes.desc}>Got problems? Reach to us via our 24/7 customer service</p>
         </div>
         <div className={classes.division}>
           <img
