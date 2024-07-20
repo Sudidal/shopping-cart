@@ -1,8 +1,8 @@
 .popUp{
   width: 700px;
   transition: scale 300ms;
-  scale: 0;
   display: block;
+  animation: dialog-open 300ms
 }
 .popUp[open] {
   scale: 1;
@@ -41,4 +41,13 @@
   font-size: 30px;
   background-color: transparent;
   color: rgb(73, 73, 73);
+}
+
+@keyframes dialog-open {
+  from {
+    transform: scale(0)
+  }
+  to {
+    transform: scale(1)
+  }
 }
