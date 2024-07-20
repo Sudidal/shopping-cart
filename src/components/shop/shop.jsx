@@ -23,7 +23,7 @@ function Shop() {
   }, []);
 
   return (
-    <div>
+    <div className="menu">
       <h2>Shop</h2>
       {loading && <p>Loading...</p>}
       {error && <p>An error has occured: {error}</p>}

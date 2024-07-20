@@ -9,7 +9,7 @@ function ProductsContainer({products}) {
           products.map(prod => {
             return <ProductCard key={prod.id} product={prod} />
           })
-        ) : <p>Hmm? Nothing to display  ¯\_( ❛ ͜ʖ ❛ )_/¯</p>
+        ) : <p>Hmm? Nothing to display here  ¯\_( ❛ ͜ʖ ❛ )_/¯</p>
       }
     </div>
   )

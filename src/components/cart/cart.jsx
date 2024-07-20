@@ -11,15 +11,16 @@ function Cart() {
   useEffect(() => {
     setLoading(true);
 
-    const list = [];
+    const idList = [];
     getCartList().forEach((item) => {
-      list.push(item.id);
+      idList.push(item.id);
     });
 
-    getSpecificProducts(list).then((response) => {
+    getSpecificProducts(idList).then((response) => {
       setLoading(false);
       if (response.status === "success") {
         setProducts(response.data);
+        
       } else {
         setError(response.data.toString());
       }
@@ -27,7 +28,7 @@ function Cart() {
   }, []);
 
   return (
-    <div>
+    <div className="menu">
       <h2>Cart</h2>
       {loading && <p>Loading...</p>}
       {error && <p>An error has occured, {error}</p>}

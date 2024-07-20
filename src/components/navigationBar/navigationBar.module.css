@@ -6,11 +6,14 @@
   justify-content: space-between;
   background-color: rgb(47, 168, 53);
 }
+.navBar * {
+  text-decoration: none;
+  color: white;
+}
 .navLinks {
   display: flex;
   align-items: center;
 }
 .navLinks > * {
   margin-right: 18px;
-  color: black;
 }

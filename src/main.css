@@ -8,13 +8,25 @@ body {
   margin: 0;
   --background-color-light: white;
   --background-color-dark: rgb(2, 17, 39);
-  background-color: var(--background-color-light);;
+  --text-color-light: white;
+  background-color: var(--background-color-light);
 }
-.icon {
+button {
+  cursor: pointer;
+}
+.menu {
+  padding: 20px;
+}
+.icon, .svg-icon {
   width: 20px;
+  height: 20px;
+  color: var(--text-color-light);
+  fill: var(--text-color-light);
 }
 .icon-with-text {
   display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 /* @media (prefers-color-scheme: light) {

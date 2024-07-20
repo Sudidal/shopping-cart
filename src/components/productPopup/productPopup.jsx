@@ -73,12 +73,12 @@ function ProductPopup() {
           </div>
         )}
 
-        <button
+        <button className={classes.closeBtn}
           onClick={() => {
             navigate("/shop");
           }}
         >
-          Close
+          X
         </button>
       </div>
     </dialog>

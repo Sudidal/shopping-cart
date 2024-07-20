@@ -1,8 +1,30 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+}
 .section {
+  padding: 20px;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
+.division {
+  width: 50%;
+}
 .image {
-  width: 50vw;
+  width: 100%;
+  object-fit: cover;
+}
+.middle {
+  background-color: blue;
+  color: white;
+}
+.shopBtn {
+  margin: 50px;
+  align-self: center;
+  padding: 10px;
+  border: 3px solid darkgreen;
+  border-radius: 8px;
+  font-size: 23px;
+  background-color: green;
 }

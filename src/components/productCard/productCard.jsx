@@ -1,14 +1,17 @@
+import { useNavigate } from "react-router-dom";
 import classes from "./productCard.module.css";
-import { Link } from "react-router-dom";
 
 function ProductCard({ product }) {
-
+const navigate = useNavigate()
   return (
-    <Link to={`./product/${product.id}`} className={classes.card}>
+    <button className={classes.card} onClick={() => {
+      if(!product.quantity)
+      navigate(`./product/${product.id}`)
+    }}>
       <img src={product.image} alt="" />
       <p>{product.title}</p>
-      <p>{product.price}$</p>
-    </Link>
+      <p>{product.price}$ {product.quantity && <span>-quantity:{product.quantity}</span>}</p>
+    </button>
   );
 }
 

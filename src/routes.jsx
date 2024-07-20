@@ -26,9 +26,13 @@ const routes = [
         element: <Cart />,
       },
       {
-        path: "home",
+        path: "/",
         element: <Home />,
       },
+      {
+        path: "home",
+        element: <Home />
+      }
     ],
   },
 ];

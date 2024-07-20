@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import classes from "./navigationBar.module.css";
+import CartSvg from "../../../public/shopping-cart";
 
 function NavigationBar({ cartCount }) {
   const items = [
@@ -28,7 +29,7 @@ function NavigationBar({ cartCount }) {
         })}
         <Link to="/cart">
           <div className="icon-with-text">
-            <img className="icon" src="public/shopping-cart.svg" alt="" />
+            <CartSvg />
             <p>{cartCount}</p>
           </div>
         </Link>
