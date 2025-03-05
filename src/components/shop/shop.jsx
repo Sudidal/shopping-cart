@@ -23,13 +23,15 @@ function Shop() {
   }, []);
 
   return (
-    <div className="menu">
-      <h2>Shop</h2>
-      {loading && <p>Loading...</p>}
-      {error && <p>An error has occured: {error}</p>}
-      {!loading && !error && <ProductsContainer products={products} />}
+    <>
+      <div className="menu">
+        <h2>Shop</h2>
+        {loading && <p>Loading...</p>}
+        {error && <p>An error has occured: {error}</p>}
+        {!loading && !error && <ProductsContainer products={products} />}
+      </div>
       <Outlet context={update} />
-    </div>
+    </>
   );
 }
 
