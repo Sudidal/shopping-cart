@@ -36,7 +36,7 @@ function ProductPopup() {
   }, [id]);
 
   return (
-    <dialog className="animate-popup text-white w-[70%] h-[80%] bg-primary-white dark:bg-primary-dark rounded-2xl" ref={dialogRef}>
+    <dialog className="animate-popup backdrop:bg-black/50 text-white w-[70%] h-[80%] bg-primary-white dark:bg-primary-dark rounded-2xl" ref={dialogRef}>
       <div className="flex flex-col gap-[30px]">
         {loading && <h1>Loading...</h1>}
         {error && <h1>An error has occured, {error}</h1>}

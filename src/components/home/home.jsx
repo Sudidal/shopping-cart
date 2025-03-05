@@ -5,7 +5,7 @@ function Home() {
 
   return (
     <div className="flex flex-col">
-      <h2>Home</h2>
+      <h2 className="primary-text text-2xl">Home</h2>
       <div className="flex items-center justify-around p-20">
         <div className="w-1/2">
           <p className="primary-text text-[20px] font-semibold">
