@@ -7,7 +7,6 @@ import {
 import { useRef, useState, useEffect } from "react";
 import { getSpecificProducts } from "../../products";
 import { addItemToCart, removeItemFromCart, getItemFromCart } from "../../cart";
-import classes from "./productPopup.module.css";
 
 function ProductPopup() {
   const [product, setProduct] = useState(null);
@@ -37,19 +36,23 @@ function ProductPopup() {
   }, [id]);
 
   return (
-    <dialog className={classes.popUp} ref={dialogRef}>
-      <div className={classes.container}>
+    <dialog className="w-[700px] animate-popup" ref={dialogRef}>
+      <div className="flex flex-col gap-[30px]">
         {loading && <h1>Loading...</h1>}
         {error && <h1>An error has occured, {error}</h1>}
 
         {product && !error && !loading && (
-          <div className={classes.content}>
-            <h2 className={classes.header}>{product.title}</h2>
-            <div className={classes.info}>
-              <div className={classes.photo}>
-                <img src={product.image} alt="" />
+          <div className="p-20">
+            <h2 className="text-xl">{product.title}</h2>
+            <div className="flex items-center gap-[20px]">
+              <div>
+                <img
+                  src={product.image}
+                  alt=""
+                  className="h-[200px] w-[200px] object-contain"
+                />
               </div>
-              <p className={classes.description}>{product.description}</p>
+              <p className="text-black/[50%]">{product.description}</p>
             </div>
             <p>{product.price}$</p>
             <input
@@ -85,7 +88,7 @@ function ProductPopup() {
         )}
 
         <button
-          className={classes.closeBtn}
+          className="top-right-btn"
           onClick={() => {
             navigate(backPath);
           }}

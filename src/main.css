@@ -32,6 +32,26 @@ button {
   gap: 5px;
 }
 
+@layer base {
+  dialog {
+    margin: auto;
+  }
+}
+
+@layer components {
+  .top-right-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    width: 30px;
+    aspect-ratio: 1/1;
+    font-size: 30px;
+    background-color: transparent;
+    color: rgb(73, 73, 73);
+  }
+}
+
 @theme {
   --spacing: 1px;
   --color-nav: rgb(47, 168, 53);
@@ -48,6 +68,16 @@ button {
     rgb(195, 11, 195),
     lightblue
   );
+  --animate-popup: popup 0.2s linear;
+
+  @keyframes popup {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
 }
 
 @utility navlink {
