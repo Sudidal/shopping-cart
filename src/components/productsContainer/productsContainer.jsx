@@ -2,7 +2,7 @@ import ProductCard from "../productCard/productCard"
 
 function ProductsContainer({products}) {
   return (
-    <div className="w-full flex flex-wrap gap-14 ">
+    <div className="w-full flex flex-wrap justify-center gap-14 ">
       {
         products.length > 0? (
           products.map(prod => {
