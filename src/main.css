@@ -36,7 +36,7 @@ button {
   --spacing: 1px;
   --color-nav-color: rgb(47, 168, 53);
   --text-xl: 20px;
-
+  --radious-xl: 12px;
 }
 
 @utility navlink {

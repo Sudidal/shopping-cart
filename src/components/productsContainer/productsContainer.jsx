@@ -1,9 +1,8 @@
 import ProductCard from "../productCard/productCard"
-import classes from "./productsContainer.module.css"
 
 function ProductsContainer({products}) {
   return (
-    <div className={classes.cardsContainer}>
+    <div className="w-full flex flex-wrap gap-14 ">
       {
         products.length > 0? (
           products.map(prod => {
