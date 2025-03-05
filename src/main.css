@@ -19,7 +19,8 @@ button {
 .menu {
   padding: 20px;
 }
-.icon, .svg-icon {
+.icon,
+.svg-icon {
   width: 20px;
   height: 20px;
   color: var(--text-color-light);
@@ -29,6 +30,19 @@ button {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+@theme {
+  --spacing: 1px;
+  --color-nav-color: rgb(47, 168, 53);
+  --text-xl: 20px;
+
+}
+
+@utility navlink {
+  margin-right: 18px;
+  text-decoration: none;
+  color: white;
 }
 
 /* @media (prefers-color-scheme: light) {
