@@ -72,6 +72,7 @@ function ProductPopup() {
                     </button>
                   ) : (
                     <button
+                    className="secondary-btn"
                       onClick={() => {
                         removeItemFromCart(product.id);
                         update();

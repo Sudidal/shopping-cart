@@ -44,6 +44,14 @@ button {
       background-color: var(--color-primary-dark);
     }
   }
+  .secondary-btn {
+    padding: 10px;
+    border-radius: 12px;
+    background-color: var(--color-ternary-light);
+    @variant dark {
+      background-color: var(--color-ternary-dark);
+    }
+  }
 
   .top-right-btn {
     position: absolute;
