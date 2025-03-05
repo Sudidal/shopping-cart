@@ -14,7 +14,7 @@ function NavigationBar({ cartCount }) {
   ];
 
   return (
-    <nav className="m-0 flex items-center justify-between bg-nav-color px-10 h-44">
+    <nav className="m-0 flex items-center justify-between bg-nav px-10 h-60">
       <Link to={"/home"} className="navlink text-xl">
         <h1>Oxide Store</h1>
       </Link>
