@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import classes from "./navigationBar.module.css";
 import CartSvg from "../../../public/shopping-cart";
 
 function NavigationBar({ cartCount }) {
@@ -15,19 +14,19 @@ function NavigationBar({ cartCount }) {
   ];
 
   return (
-    <nav className={classes.navBar}>
-      <Link to={"/home"}>
+    <nav className="m-0 flex items-center justify-between bg-primary-light px-10 h-60 dark:bg-primary-dark">
+      <Link to={"/home"} className="navlink text-xl">
         <h1>Oxide Store</h1>
       </Link>
-      <div className={classes.navLinks}>
+      <div className="flex items-center">
         {items.map((item) => {
           return (
-            <Link key={item.title} to={item.link}>
+            <Link key={item.title} to={item.link} className="navlink">
               {item.title}
             </Link>
           );
         })}
-        <Link to="/cart">
+        <Link to="/cart" className="navlink">
           <div className="icon-with-text">
             <CartSvg />
             <p>{cartCount}</p>

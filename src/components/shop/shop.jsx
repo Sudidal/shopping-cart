@@ -25,7 +25,7 @@ function Shop() {
   return (
     <>
       <div className="menu">
-        <h2>Shop</h2>
+        <h1 className="primary-text text-2xl">Shop</h1>
         {loading && <p>Loading...</p>}
         {error && <p>An error has occured: {error}</p>}
         {!loading && !error && <ProductsContainer products={products} />}

@@ -31,7 +31,7 @@ function Cart() {
   return (
     <>
       <div className="menu">
-        <h2>Cart</h2>
+        <h2 className="primary-text text-2xl">Cart</h2>
         {loading && <p>Loading...</p>}
         {error && <p>An error has occured, {error}</p>}
         {!loading && !error && <ProductsContainer products={products} />}
