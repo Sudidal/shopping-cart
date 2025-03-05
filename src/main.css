@@ -6,12 +6,9 @@
 }
 
 body {
-  padding: 0;
-  margin: 0;
   --background-color-light: white;
   --background-color-dark: rgb(2, 17, 39);
   --text-color-light: white;
-  background-color: var(--background-color-light);
 }
 button {
   cursor: pointer;
@@ -41,22 +38,33 @@ button {
 @layer components {
   .top-right-btn {
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 10px;
     right: 10px;
     border: none;
-    width: 30px;
+    width: 40px;
     aspect-ratio: 1/1;
-    font-size: 30px;
+    font-size: 40px;
     background-color: transparent;
-    color: rgb(73, 73, 73);
   }
 }
 
 @theme {
   --spacing: 1px;
-  --color-nav: rgb(47, 168, 53);
+
   --text-xl: 20px;
+
   --radious-xl: 12px;
+
+  --animate-popup: popup 0.2s linear;
+
+  --color-primary-light: rgb(47, 168, 53);
+  --color-primary-dark: rgb(17, 117, 17);
+  --color-secondary-light: rgba(209, 207, 207, 0.5);
+  --color-secondary-dark: rgb(20, 20, 20);
+  --color-ternary-dark: rgba(40, 40, 40, 0.4);
   --color-stupid: linear-gradient(
     20deg,
     red,
@@ -68,7 +76,6 @@ button {
     rgb(195, 11, 195),
     lightblue
   );
-  --animate-popup: popup 0.2s linear;
 
   @keyframes popup {
     from {
@@ -77,6 +84,20 @@ button {
     to {
       transform: scale(1);
     }
+  }
+}
+
+@utility primary-text {
+  color: black;
+  @variant dark {
+    color: white;
+  }
+}
+
+@utility primary-bg {
+  background-color: var(--color-primary-light);
+  @variant dark {
+    background-color: var(--color-primary-dark);
   }
 }
 

@@ -4,7 +4,7 @@ function ProductCard({ product }) {
   const navigate = useNavigate();
   return (
     <button
-      className="flex w-[300px] flex-col items-center justify-around rounded-xl bg-[rgb(209,207,207)] p-20"
+      className="bg-secondary-light dark:bg-ternary-dark flex w-[300px] flex-col items-center justify-around rounded-xl p-20 dark:text-white"
       onClick={() => {
         if (!product.quantity) navigate(`./product/${product.id}`);
       }}

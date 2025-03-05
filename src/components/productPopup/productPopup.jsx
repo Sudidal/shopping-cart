@@ -36,7 +36,7 @@ function ProductPopup() {
   }, [id]);
 
   return (
-    <dialog className="w-[700px] animate-popup" ref={dialogRef}>
+    <dialog className="animate-popup text-white w-[70%] h-[80%] bg-primary-white dark:bg-primary-dark rounded-2xl" ref={dialogRef}>
       <div className="flex flex-col gap-[30px]">
         {loading && <h1>Loading...</h1>}
         {error && <h1>An error has occured, {error}</h1>}
@@ -52,7 +52,7 @@ function ProductPopup() {
                   className="h-[200px] w-[200px] object-contain"
                 />
               </div>
-              <p className="text-black/[50%]">{product.description}</p>
+              <p className="text-white/[50%]">{product.description}</p>
             </div>
             <p>{product.price}$</p>
             <input
@@ -93,7 +93,7 @@ function ProductPopup() {
             navigate(backPath);
           }}
         >
-          X
+          ⨯
         </button>
       </div>
     </dialog>
