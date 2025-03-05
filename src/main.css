@@ -34,15 +34,30 @@ button {
 
 @theme {
   --spacing: 1px;
-  --color-nav-color: rgb(47, 168, 53);
+  --color-nav: rgb(47, 168, 53);
   --text-xl: 20px;
   --radious-xl: 12px;
+  --color-stupid: linear-gradient(
+    20deg,
+    red,
+    pink,
+    orange,
+    yellow,
+    green,
+    lightblue,
+    rgb(195, 11, 195),
+    lightblue
+  );
 }
 
 @utility navlink {
   margin-right: 18px;
   text-decoration: none;
   color: white;
+}
+@utility stupid-text {
+  padding: 5px;
+  background: var(--color-stupid);
 }
 
 /* @media (prefers-color-scheme: light) {
