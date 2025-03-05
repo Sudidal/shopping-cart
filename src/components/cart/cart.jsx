@@ -2,11 +2,13 @@ import { getCartList } from "../../cart";
 import { getSpecificProducts } from "../../products";
 import ProductsContainer from "../productsContainer/productsContainer";
 import { useState, useEffect } from "react";
+import { Outlet, useOutletContext } from "react-router-dom";
 
 function Cart() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const update = useOutletContext();
 
   useEffect(() => {
     setLoading(true);
@@ -20,7 +22,6 @@ function Cart() {
       setLoading(false);
       if (response.status === "success") {
         setProducts(response.data);
-        
       } else {
         setError(response.data.toString());
       }
@@ -28,12 +29,15 @@ function Cart() {
   }, []);
 
   return (
-    <div className="menu">
-      <h2>Cart</h2>
-      {loading && <p>Loading...</p>}
-      {error && <p>An error has occured, {error}</p>}
-      {!loading && !error && <ProductsContainer products={products} />}
-    </div>
+    <>
+      <div className="menu">
+        <h2>Cart</h2>
+        {loading && <p>Loading...</p>}
+        {error && <p>An error has occured, {error}</p>}
+        {!loading && !error && <ProductsContainer products={products} />}
+      </div>
+      <Outlet context={update} />
+    </>
   );
 }
 

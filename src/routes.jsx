@@ -24,6 +24,12 @@ const routes = [
       {
         path: "cart",
         element: <Cart />,
+        children: [
+          {
+            path: "product/:productId",
+            element: <ProductPopup />,
+          },
+        ],
       },
       {
         path: "/",
@@ -31,8 +37,8 @@ const routes = [
       },
       {
         path: "home",
-        element: <Home />
-      }
+        element: <Home />,
+      },
     ],
   },
 ];

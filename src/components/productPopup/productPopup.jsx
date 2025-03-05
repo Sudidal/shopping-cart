@@ -1,4 +1,9 @@
-import { useNavigate, useParams, useOutletContext } from "react-router-dom";
+import {
+  useNavigate,
+  useParams,
+  useOutletContext,
+  useLocation,
+} from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 import { getSpecificProducts } from "../../products";
 import { addItemToCart, removeItemFromCart, getItemFromCart } from "../../cart";
@@ -13,7 +18,10 @@ function ProductPopup() {
   const dialogRef = useRef();
   const quantityRef = useRef();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   const id = useParams().productId;
+
+  const backPath = "/" + pathname.split("/").slice(1, -2).join("/");
 
   useEffect(() => {
     dialogRef.current?.showModal();
@@ -54,7 +62,10 @@ function ProductPopup() {
             {!getItemFromCart(product.id) ? (
               <button
                 onClick={() => {
-                  addItemToCart(product.id, parseInt(quantityRef.current.value));
+                  addItemToCart(
+                    product.id,
+                    parseInt(quantityRef.current.value),
+                  );
                   update();
                 }}
               >
@@ -73,9 +84,10 @@ function ProductPopup() {
           </div>
         )}
 
-        <button className={classes.closeBtn}
+        <button
+          className={classes.closeBtn}
           onClick={() => {
-            navigate("/shop");
+            navigate(backPath);
           }}
         >
           X
