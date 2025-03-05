@@ -58,10 +58,4 @@ function Home() {
   );
 }
 
-// loving woman is an illustration in my mind, it's not a real important
-// thing, but the real thing is that im going to die, and going to face
-// allah, and the real thing is a wife not an untouchable photo,
-// imagining and rubbing myself will only make me far from reaching the
-// real wife;
-
 export default Home;
