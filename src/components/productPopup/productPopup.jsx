@@ -36,54 +36,63 @@ function ProductPopup() {
   }, [id]);
 
   return (
-    <dialog className="animate-popup backdrop:bg-black/50 text-white w-[70%] h-[80%] bg-primary-white dark:bg-primary-dark rounded-2xl" ref={dialogRef}>
-      <div className="flex flex-col gap-[30px]">
+    <dialog
+      className="animate-popup bg-primary-white border-primary-dark dark:bg-secondary-dark h-[80%] w-[70%] rounded-2xl border-4 text-white backdrop:bg-black/50"
+      ref={dialogRef}
+    >
+      <div className="flex flex-col gap-[30px] p-[20px]">
         {loading && <h1>Loading...</h1>}
         {error && <h1>An error has occured, {error}</h1>}
 
         {product && !error && !loading && (
           <div className="p-20">
-            <h2 className="text-xl">{product.title}</h2>
             <div className="flex items-center gap-[20px]">
-              <div>
-                <img
-                  src={product.image}
-                  alt=""
-                  className="h-[200px] w-[200px] object-contain"
-                />
+              <img
+                src={product.image}
+                alt=""
+                className="h-[400px] w-1/2 object-contain"
+              />
+              <div className="w-1/2">
+                <h2 className="mb-14 text-xl">{product.title}</h2>
+                <p className="mb-14 text-white/[50%]">{product.description}</p>
+
+                <div className="flex items-center">
+                  {!getItemFromCart(product.id) ? (
+                    <button
+                      className="primary-btn"
+                      onClick={() => {
+                        addItemToCart(
+                          product.id,
+                          parseInt(quantityRef.current.value),
+                        );
+                        update();
+                      }}
+                    >
+                      Add To Cart
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => {
+                        removeItemFromCart(product.id);
+                        update();
+                      }}
+                    >
+                      Remove From Cart
+                    </button>
+                  )}
+
+                  <input
+                    className="bg-ternary-light dark:bg-ternary-dark ml-15 w-[50px] py-5 pl-7"
+                    ref={quantityRef}
+                    type="number"
+                    placeholder="Enter quantity"
+                    defaultValue={1}
+                    min={1}
+                  />
+                  <p className="ml-auto">{product.price}$</p>
+                </div>
               </div>
-              <p className="text-white/[50%]">{product.description}</p>
             </div>
-            <p>{product.price}$</p>
-            <input
-              ref={quantityRef}
-              type="number"
-              placeholder="Enter quantity"
-              defaultValue={1}
-              min={1}
-            />
-            {!getItemFromCart(product.id) ? (
-              <button
-                onClick={() => {
-                  addItemToCart(
-                    product.id,
-                    parseInt(quantityRef.current.value),
-                  );
-                  update();
-                }}
-              >
-                Add To Cart
-              </button>
-            ) : (
-              <button
-                onClick={() => {
-                  removeItemFromCart(product.id);
-                  update();
-                }}
-              >
-                Remove From Cart
-              </button>
-            )}
           </div>
         )}
 
