@@ -68,6 +68,8 @@ button {
   }
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --spacing: 1px;
 

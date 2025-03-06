@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import CartSvg from "../../../public/shopping-cart";
+import themeManager from "../../themeManager";
 
 function NavigationBar({ cartCount }) {
   const items = [
@@ -14,11 +15,14 @@ function NavigationBar({ cartCount }) {
   ];
 
   return (
-    <nav className="m-0 flex items-center justify-between bg-primary-light px-10 h-60 dark:bg-primary-dark">
+    <nav className="bg-primary-light dark:bg-primary-dark m-0 flex h-60 items-center justify-between px-10">
       <Link to={"/home"} className="navlink text-xl">
         <h1>Oxide Store</h1>
       </Link>
       <div className="flex items-center">
+        <button onClick={themeManager.switchTheme}>
+          <img src="/theme-switch.svg" alt="" className="navlink w-20" />
+        </button>
         {items.map((item) => {
           return (
             <Link key={item.title} to={item.link} className="navlink">
